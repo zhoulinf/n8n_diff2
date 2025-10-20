@@ -1,0 +1,55 @@
+{
+  "id": "83wOFKYdxloN33lT",
+  "name": "其他工作流",
+  "nodes": [
+    {
+      "id": "544fa64b-2a65-4537-8200-857b5b230e3e",
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "position": [
+        256,
+        16
+      ],
+      "parameters": {
+        "jsCode": "// Loop over input items and add a new field called 'myNewField' to the JSON of each one\nfor (const item of $input.all()) {\n  item.json.myNewField = 1;\n}\n\nreturn {\n  abc: 1\n}"
+      },
+      "typeVersion": 2
+    },
+    {
+      "id": "6e112a0b-d18d-46a4-bc8b-1f7c7cca5e4f",
+      "name": "When clicking ‘Execute workflow’",
+      "type": "n8n-nodes-base.manualTrigger",
+      "position": [
+        64,
+        16
+      ],
+      "parameters": {},
+      "typeVersion": 1
+    }
+  ],
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "triggerCount": 0,
+  "versionId": "fcc15383-7720-4126-a6ce-336124f532e3",
+  "owner": {
+    "type": "team",
+    "teamId": "6A0ItpqT1nV7Q3Cp",
+    "teamName": "My project"
+  },
+  "parentFolderId": null,
+  "isArchived": false
+}
